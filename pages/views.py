@@ -1,16 +1,30 @@
 from django.shortcuts import render
 
+from pages.models import Team
+
 
 def home(request):
-    return render(request, 'pages/home.html')
+    teams = Team.objects.all()
+    context = {
+        "teams": teams,
+    }
+    return render(request, 'pages/home.html', context)
 
 
 def cars(request):
+    teams = Team.objects.all()
+    context = {
+        "teams": teams,
+    }
     return render(request, 'pages/cars.html')
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    teams = Team.objects.all()
+    context = {
+        "teams": teams,
+    }
+    return render(request, 'pages/about.html', context)
 
 
 def services(request):
