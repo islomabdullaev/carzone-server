@@ -29,14 +29,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cars.apps.CarsConfig',
     'pages.apps.PagesConfig',
 
+    ##############################
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
+    #############################
+    'ckeditor',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -123,7 +130,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "carzone/static")
 ]
 
-#Media settings
+# Media settings
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
