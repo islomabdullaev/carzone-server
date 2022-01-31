@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
 {% block content %}
-    {% load humanize %}
-    {% load static %}
     <!-- Banner start -->
     <div class="banner" id="banner">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -36,52 +36,40 @@
             </div>
             <!-- Search box 3 start -->
             <div class="search-box-4 sb-8">
-                <form action="#" method="">
+                <form action="{% url 'search' %}" method="GET">
                     <div class="form-group">
                         <input type="text" name="keyword" placeholder="Search by name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <select class="form-control search-fields" name="select-brand">
-                            <option selected="true" disabled="disabled">Brand</option>
-                            <option>Audi</option>
-                            <option>BMW</option>
-                            <option>Honda</option>
-                            <option>Nissan</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control search-fields" name="select-make">
+                        <select class="form-control search-fields" name="model">
                             <option selected="true" disabled="disabled">Model</option>
-                            <option>BMW</option>
-                            <option>Honda</option>
-                            <option>Lamborghini Huracán</option>
-                            <option>Sports Car</option>
+                            {% for i in search_model %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control search-fields" name="select-location">
+                        <select class="form-control search-fields" name="location">
                             <option selected="true" disabled="disabled">Location</option>
-                            <option>United States</option>
-                            <option>United Kingdom</option>
+                            {% for i in search_city %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control search-fields" name="select-year">
+                        <select class="form-control search-fields" name="year">
                             <option selected="true" disabled="disabled">Year</option>
-                            <option>2016</option>
-                            <option>2017</option>
-                            <option>2018</option>
-                            <option>2019</option>
+                            {% for i in search_year %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control search-fields" name="select-type">
+                        <select class="form-control search-fields" name="body_style">
                             <option selected="true" disabled="disabled">Select Type Of Car</option>
-                            <option>Sedan</option>
-                            <option>Sports</option>
-                            <option>Hatchback</option>
-                            <option>Pickup Truck</option>
-                            <option>SUV</option>
+                            {% for i in search_body_style %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="range-slider clearfix">
@@ -130,7 +118,7 @@
                         <div class="slick-slide-item">
                             <div class="car-box-3">
                                 <div class="car-thumbnail">
-                                    <a href="car-details.html" class="car-img">
+                                    <a href="{% url 'detail' pk=featured_car.pk %}" class="car-img">
                                         <div class="tag-2">Featured</div>
                                         <div class="price-box">
                                             <span>${{ featured_car.price| intcomma }}</span>
@@ -182,10 +170,10 @@
                                 </div>
                                 <div class="detail">
                                     <h1 class="title">
-                                        <a href="car-details.html">{{ featured_car.car_title }}</a>
+                                        <a href="{% url 'detail' pk=featured_car.pk %}">{{ featured_car.car_title }}</a>
                                     </h1>
                                     <div class="location">
-                                        <a href="car-details.html">
+                                        <a href="{% url 'detail' pk=featured_car.pk %}">
                                             <i class="flaticon-pin"></i>{{ featured_car.state }}, {{ featured_car.city }}
                                         </a>
                                     </div>
@@ -228,7 +216,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="car-box">
                             <div class="car-thumbnail">
-                                <a href="/" class="car-img">
+                                <a href="{% url 'detail' pk=car.pk %}" class="car-img">
                                     <div class="tag">For Sale</div>
                                     <img class="d-block w-100" src="{{ car.car_photo.url }}" alt="car"
                                          style="max-height: 262px; min-height: 262px">
@@ -282,10 +270,10 @@
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="car-details.html">{{ car.car_title }}</a>
+                                    <a href="{% url 'detail' pk=car.pk %}">{{ car.car_title }}</a>
                                 </h1>
                                 <div class="location">
-                                    <a href="car-details.html">
+                                    <a href="{% url 'detail' pk=car.pk %}">
                                         <i class="flaticon-pin"></i>{{ car.state }} St, {{ car.city }}
                                     </a>
                                 </div>
