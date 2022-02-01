@@ -27,7 +27,7 @@ SECRET_KEY = 'p041t6znd9pwtfo_o179u9i8j^(=v-e72kv8murd2v+4p_kl)9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["arcane-brook-49197.herokuapp.com", "carzoneapp.com", "www.carzone.co"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
