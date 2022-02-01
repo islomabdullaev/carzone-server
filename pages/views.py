@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
 from cars.models import Car
+from contacts.models import ContactUs
 from pages.models import Team
 
 
@@ -38,4 +40,22 @@ def services(request):
 
 
 def contacts(request):
+    if request.method == "POST":
+        fullname = request.POST["name"]
+        email = request.POST["email"]
+        subject = request.POST["subject"]
+        phone = request.POST["phone"]
+        message = request.POST["message"]
+
+        contact = ContactUs(
+            fullname=fullname,
+            email=email,
+            subject=subject,
+            phone=phone,
+            message=message,
+        )
+        contact.save()
+        messages.success(request, "Your details have been sent us, Please wait for a response.")
+        return redirect("contacts")
+
     return render(request, 'pages/contact.html')
