@@ -14,7 +14,7 @@ import dj_database_url
 import _locale
 from django.contrib.messages import constants as messages
 
-_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
+_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf16'])
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,7 +27,7 @@ SECRET_KEY = 'p041t6znd9pwtfo_o179u9i8j^(=v-e72kv8murd2v+4p_kl)9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["arcane-brook-49197.herokuapp.com", "carzoneapp.com", "www.carzone.co"]
+ALLOWED_HOSTS = ["arcane-brook-49197.herokuapp.com", "carzoneapp.com", "www.carzone.co", "127.0.0.1"]
 
 # Application definition
 
