@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p041t6znd9pwtfo_o179u9i8j^(=v-e72kv8murd2v+4p_kl)9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["arcane-brook-49197.herokuapp.com", "carzoneapp.com", "www.carzone.co", "127.0.0.1"]
 
@@ -106,9 +106,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    "default": dj_database_url.config(default="postgres://postgres:postgres@localhost/carzone_db")
-}
+DATABASES = {"default": dj_database_url.config(default="postgres://postgres:postgres@localhost/carzone_db")}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
