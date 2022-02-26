@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carzone_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'NAME': 'djal5m9tktd2',
+        'USER': 'ozunpgswebdgzb',
+        'PASSWORD': '7323b9c88491afd0d2c0eb3357fb280a3840b2611a3b61803dc8149b426b58a3',
+        'HOST': 'ec2-3-214-190-189.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
