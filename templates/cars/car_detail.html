@@ -313,7 +313,11 @@
                                                           placeholder="Enter your message here (optional)"></textarea>
                                             </div>
                                             <hr>
-                                            <input type="submit" value="Send" class="btn btn-block btn-danger">
+                                            {% if user.is_authenticated %}
+                                                <input type="submit" value="Send" class="btn btn-block btn-danger">
+                                            {% else %}
+                                                <p class="text-center text-danger">Please first login then come back for request</p>
+                                            {% endif %}
                                         </form>
                                     </div>
                                 </div>

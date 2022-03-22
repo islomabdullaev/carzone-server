@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -153,10 +153,4 @@ MESSAGE_TAGS = {
 }
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = "home"
-
-###############################################################
-# Email sending
-
-
-###############################################################
+LOGIN_REDIRECT_URL = "dashboard"
