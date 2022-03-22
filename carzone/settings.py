@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p041t6znd9pwtfo_o179u9i8j^(=v-e72kv8murd2v+4p_kl)9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["139.59.135.127"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -93,10 +93,22 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+if DEBUG:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'carzone',
+        'USER': 'islom',
+        'PASSWORD': 'Isca2002',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
